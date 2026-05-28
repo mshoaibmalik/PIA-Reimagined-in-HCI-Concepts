@@ -24,6 +24,15 @@ export function Header() {
   useEffect(() => {
     document.documentElement.classList.toggle("hc", hc);
   }, [hc]);
+  useEffect(() => {
+    if (lang === "EN") {
+      document.documentElement.lang = "en";
+      document.documentElement.dir = "ltr";
+    } else {
+      document.documentElement.lang = "ur";
+      document.documentElement.dir = "rtl";
+    }
+  }, [lang]);
 
   const cycleScale = () =>
     setScale((s) => (s === "base" ? "lg" : s === "lg" ? "xl" : "base"));
@@ -61,7 +70,7 @@ export function Header() {
             <Link to="/" className="inline-flex items-center gap-1 rounded-md px-2 py-1 hover:bg-accent hover:text-accent-foreground">
               <HelpCircle className="h-3.5 w-3.5" aria-hidden /> Help
             </Link>
-            <Link to="/awards" className="inline-flex items-center gap-1 rounded-md px-2 py-1 hover:bg-accent hover:text-accent-foreground">
+            <Link to="/login" className="inline-flex items-center gap-1 rounded-md px-2 py-1 hover:bg-accent hover:text-accent-foreground">
               <User className="h-3.5 w-3.5" aria-hidden /> Login
             </Link>
           </div>
@@ -71,7 +80,7 @@ export function Header() {
       {/* Main nav */}
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link to="/" className="flex items-center" aria-label="PIA home">
-          <img src={logo} alt="Pakistan International Airlines logo" width={56} height={56} className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14" />
+          <img src={logo} alt="Pakistan International Airlines logo" width={56} height={56} className="h-10 w-30 sm:h-12 sm:w-36 md:h-14 md:w-42" />
         </Link>
 
         <nav aria-label="Primary" className="hidden md:block">

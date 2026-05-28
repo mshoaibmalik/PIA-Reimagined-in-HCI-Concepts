@@ -8,6 +8,8 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
+import favSvgUrl from "../assets/pia-fav-circle.svg?url";
+import favPngUrl from "../assets/pia-fav.png?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 
@@ -49,7 +51,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "PIA — Pakistan International Airlines | Book Flights, Check-In & Awards+" },
       { name: "description", content: "Modern HCI redesign of PIA. Book flights, track status, web check-in, and manage your Awards+ loyalty account." },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: favPngUrl, type: "image/png", sizes: "32x32" },
+      { rel: "apple-touch-icon", href: favPngUrl },
+      { rel: "mask-icon", href: favSvgUrl, color: "#065f46" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

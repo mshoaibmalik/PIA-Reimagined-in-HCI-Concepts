@@ -15,6 +15,7 @@ import { Route as SeatSelectionRouteImport } from './routes/seat-selection'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as PrebookMealRouteImport } from './routes/prebook-meal'
 import { Route as PrebookBaggageRouteImport } from './routes/prebook-baggage'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as GiftCardRouteImport } from './routes/gift-card'
 import { Route as CheckinRouteImport } from './routes/checkin'
 import { Route as AwardsRouteImport } from './routes/awards'
@@ -50,6 +51,11 @@ const PrebookBaggageRoute = PrebookBaggageRouteImport.update({
   path: '/prebook-baggage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GiftCardRoute = GiftCardRouteImport.update({
   id: '/gift-card',
   path: '/gift-card',
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/awards': typeof AwardsRoute
   '/checkin': typeof CheckinRoute
   '/gift-card': typeof GiftCardRoute
+  '/login': typeof LoginRoute
   '/prebook-baggage': typeof PrebookBaggageRoute
   '/prebook-meal': typeof PrebookMealRoute
   '/search': typeof SearchRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/awards': typeof AwardsRoute
   '/checkin': typeof CheckinRoute
   '/gift-card': typeof GiftCardRoute
+  '/login': typeof LoginRoute
   '/prebook-baggage': typeof PrebookBaggageRoute
   '/prebook-meal': typeof PrebookMealRoute
   '/search': typeof SearchRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/awards': typeof AwardsRoute
   '/checkin': typeof CheckinRoute
   '/gift-card': typeof GiftCardRoute
+  '/login': typeof LoginRoute
   '/prebook-baggage': typeof PrebookBaggageRoute
   '/prebook-meal': typeof PrebookMealRoute
   '/search': typeof SearchRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/awards'
     | '/checkin'
     | '/gift-card'
+    | '/login'
     | '/prebook-baggage'
     | '/prebook-meal'
     | '/search'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/awards'
     | '/checkin'
     | '/gift-card'
+    | '/login'
     | '/prebook-baggage'
     | '/prebook-meal'
     | '/search'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/awards'
     | '/checkin'
     | '/gift-card'
+    | '/login'
     | '/prebook-baggage'
     | '/prebook-meal'
     | '/search'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   AwardsRoute: typeof AwardsRoute
   CheckinRoute: typeof CheckinRoute
   GiftCardRoute: typeof GiftCardRoute
+  LoginRoute: typeof LoginRoute
   PrebookBaggageRoute: typeof PrebookBaggageRoute
   PrebookMealRoute: typeof PrebookMealRoute
   SearchRoute: typeof SearchRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrebookBaggageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gift-card': {
       id: '/gift-card'
       path: '/gift-card'
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   AwardsRoute: AwardsRoute,
   CheckinRoute: CheckinRoute,
   GiftCardRoute: GiftCardRoute,
+  LoginRoute: LoginRoute,
   PrebookBaggageRoute: PrebookBaggageRoute,
   PrebookMealRoute: PrebookMealRoute,
   SearchRoute: SearchRoute,
